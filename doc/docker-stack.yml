@@ -1,0 +1,31 @@
+version: '3.6'
+services:
+  study-springcloud-mvc:
+    image: study/study-springboot-mvc:1
+    restart_policy: always
+    #端口
+    expose: ""
+    ports:
+      - "7000:7000"
+    #数据卷
+    volumes:
+      - /xdfapp:/xdfapp
+    #环境变量
+    environment:
+      - NAME=wangzhj
+      - AGE=21
+      - SEX=男
+    #日志服务
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "3"
+    #网络
+    network_mode:
+    networks:
+      - study_net
+
+networks:
+  study_net:
+    external: true
