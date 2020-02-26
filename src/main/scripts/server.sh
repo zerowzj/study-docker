@@ -6,7 +6,7 @@ cd $(dirname $0)
 cd ..
 #常量
 PROJECT_NAME=study-springboot-docker
-JAR_FILE=study-springboot-dockerc-1.0.jar
+JAR_FILE=study-springboot-docker-1.0.jar
 #部署
 DEPLOY_HOME=$(pwd)
 LIB_DIR=$DEPLOY_HOME/lib

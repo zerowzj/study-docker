@@ -39,13 +39,9 @@
     </dependencies>
 
     <build>
-        <filters>
-            <filter>src/main/filters/${env}.properties</filter>
-        </filters>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
-                <filtering>true</filtering>
             </resource>
             <resource>
                 <directory>src/main/${env}</directory>
