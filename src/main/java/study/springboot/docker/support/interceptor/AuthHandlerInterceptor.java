@@ -1,4 +1,4 @@
-package study.springboot.mvc.support.interceptor;
+package study.springboot.docker.support.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

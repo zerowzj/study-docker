@@ -1,10 +1,10 @@
-package study.springboot.mvc;
+package study.springboot.docker;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import study.springboot.mvc.support.SpringBootCfg;
+import study.springboot.docker.support.SpringBootCfg;
 
-public class StartupMvc {
+public class Startup {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(SpringBootCfg.class, args);
