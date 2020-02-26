@@ -3,11 +3,11 @@ version: '3.6'
 #服务
 #==========
 services:
-  study-springcloud-docker:
+  study-springboot-docker:
     image: study/study-springboot-docker:1
-    restart_policy: always
+    restart: always
     #端口
-    expose: ""
+    #expose: ""
     ports:
       - "7000:7000"
     #数据卷
@@ -25,7 +25,7 @@ services:
         max-size: "100m"
         max-file: "3"
     #网络
-    network_mode:
+    #network_mode:
     networks:
       - study_net
 #==========
