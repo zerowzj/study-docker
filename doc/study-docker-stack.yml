@@ -1,7 +1,10 @@
 version: '3.6'
+#==========
+#服务
+#==========
 services:
-  study-springcloud-mvc:
-    image: study/study-springboot-mvc:1
+  study-springcloud-docker:
+    image: study/study-springboot-docker:1
     restart_policy: always
     #端口
     expose: ""
@@ -25,7 +28,9 @@ services:
     network_mode:
     networks:
       - study_net
-
+#==========
+#网络
+#==========
 networks:
   study_net:
     external: true

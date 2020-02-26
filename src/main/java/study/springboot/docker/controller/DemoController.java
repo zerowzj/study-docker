@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController {
 
     @GetMapping("/sayHi")
-   synchronized public String sayHi(String name) {
+    public String sayHi(String name) {
         log.info("sayHi...");
         return String.format("hi, %s", name);
     }

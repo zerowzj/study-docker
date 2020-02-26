@@ -1,18 +1,22 @@
-#********************
-#（★）
-#********************
+#
 server:
   #address: 127.0.0.1
   port: 7000
 #
 logging:
   config: classpath:logback.xml
-#********************
-#（★）Spring
-#********************
+#
 spring:
   application:
     name: study-docker
   main:
     web-application-type: servlet
     banner-mode: "console"
+
+
+
+#
+docker:
+  env:
+    name: ${NAME}
+    age: ${AGE}
