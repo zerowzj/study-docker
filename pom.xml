@@ -127,7 +127,6 @@
                             <!--镜像TAG，不指定默认为latest-->
                             <tag>1</tag>
                             <buildArgs>
-                                <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
                                 <TAR_FILE>target/${project.build.finalName}.tar.gz</TAR_FILE>
                             </buildArgs>
                         </configuration>

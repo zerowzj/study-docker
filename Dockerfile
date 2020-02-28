@@ -8,8 +8,8 @@ RUN echo 'Asia/Shanghai' >/etc/timezone
 #变量
 ARG TAR_FILE
 ENV DEPLOY_DIR=/app \
-PROJECT_NAME=study-springboot-docker \
-TAR_NAME=study-springboot-docker-1.0.tar.gz
+    PROJECT_NAME=study-springboot-docker \
+    TAR_NAME=study-springboot-docker-1.0.tar.gz
 
 #（1）
 #ADD ${TAR_FILE} ${DEPLOY_DIR}
