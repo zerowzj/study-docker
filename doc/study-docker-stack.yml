@@ -10,7 +10,6 @@ services:
     expose: ""
     ports:
       - "7000:7000"
-
     #（▲）数据卷
     volumes:
       - /xdfapp:/xdfapp
@@ -44,3 +43,5 @@ services:
 networks:
   overlay_net:
     external: true
+  bre_net
+    driver: briage
