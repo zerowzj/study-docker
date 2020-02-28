@@ -117,11 +117,11 @@
                             <googleContainerRegistryEnabled>false</googleContainerRegistryEnabled>
                             <!-- 上下文目录-->
                             <contextDirectory>${project.basedir}</contextDirectory>
-                            <!--                            &lt;!&ndash;Dockerfile位置&ndash;&gt;-->
-                            <!--                            <dockerfile>src/main/docker/Dockerfile</dockerfile>-->
-                            <!--                            &lt;!&ndash; 生成镜像时相关信息存储位置 &ndash;&gt;-->
-                            <!--                            <dockerInfoDirectory>src/main/docker</dockerInfoDirectory>-->
-                            <!--                            <dockerConfigFile>src/main/docker</dockerConfigFile>-->
+                            <!-- 生成镜像时相关信息存储位置 -->
+                            <dockerInfoDirectory>src/main/docker</dockerInfoDirectory>
+                            <dockerConfigFile>src/main/docker</dockerConfigFile>
+<!--                            <dockerfile>src/main/docker/Dockerfile</dockerfile>-->
+                            <skipDockerInfo>true</skipDockerInfo>
                             <!--镜像仓库-->
                             <repository>${docker.image.prefix}/${project.artifactId}</repository>
                             <!--镜像TAG，不指定默认为latest-->
