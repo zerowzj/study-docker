@@ -5,9 +5,8 @@ version: '3.6'
 services:
   study-springcloud-docker:
     image: study/study-springboot-docker:1
-    restart_policy: always
     #（▲）端口
-    expose: ""
+    #expose: ""
     ports:
       - "7000:7000"
     #（▲）数据卷
@@ -17,7 +16,6 @@ services:
     environment:
       - NAME=wangzhj
       - AGE=21
-      - SEX=男
     #（▲）日志服务
     logging:
       driver: "json-file"
@@ -25,18 +23,18 @@ services:
         max-size: "100m"
         max-file: "3"
     #（▲）网络
-    network_mode:
+    #network_mode:
     networks:
       - overlay_net
     #（）部署
-    deploy:
-      model: global
-      replicas: 3
-      restart_policy:
-        condition: restart
-        delay:  2
-        max_attemps: 3
-        windows: 3
+#    deploy:
+#      model: global
+#      replicas: 3
+#      restart_policy:
+#        condition: restart
+#        delay:  2
+#        max_attemps: 3
+#        windows: 3
 #====================
 #（★）网络
 #====================
