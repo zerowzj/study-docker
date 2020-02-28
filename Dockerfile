@@ -10,12 +10,14 @@ ARG TAR_FILE
 ENV DEPLOY_DIR=/app \
 PROJECT_NAME=study-springboot-docker \
 TAR_NAME=study-springboot-docker-1.0.tar.gz
+
 #（1）
 #ADD ${TAR_FILE} ${DEPLOY_DIR}
 #（2）
 RUN mkdir ${DEPLOY_DIR}
 COPY ${TAR_FILE} ${DEPLOY_DIR}
 RUN tar -zxvf ${DEPLOY_DIR}/${TAR_NAME} -C ${DEPLOY_DIR} && rm -rf ${DEPLOY_DIR}/${TAR_NAME}
+
 #设置工作目录
 WORKDIR ${DEPLOY_DIR}/${PROJECT_NAME}/bin
 #启动
