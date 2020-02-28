@@ -2,9 +2,9 @@
 doc
 src
 
-#
+#忽略文件
 *.iml
 
-#
+#忽略目录，排除例外
 target
 !target/study-springboot-docker-1.0.tar.gz
