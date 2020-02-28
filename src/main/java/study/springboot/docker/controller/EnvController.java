@@ -14,12 +14,14 @@ public class EnvController {
 
     @Value("${docker.env.name}")
     private String name;
+    @Value("${docker.env.age}")
+    private int age;
 
     @GetMapping("/env")
     public Map<String, Object> sayHi() {
         Map<String, Object> data = Maps.newHashMap();
         data.put("name", name);
-        data.put("age", name);
+        data.put("age", age);
         return data;
     }
 }

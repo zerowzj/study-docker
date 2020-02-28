@@ -7,7 +7,7 @@
         <format>tar.gz</format>
     </formats>
     <includeBaseDirectory>true</includeBaseDirectory>
-    <baseDirectory>study-springboot-mvc</baseDirectory>
+    <baseDirectory>study-springboot-docker</baseDirectory>
 
     <fileSets>
         <fileSet>
