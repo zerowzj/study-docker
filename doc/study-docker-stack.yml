@@ -1,36 +1,46 @@
 version: '3.6'
-#==========
-#服务
-#==========
+#====================
+#（★）服务
+#====================
 services:
   study-springcloud-docker:
     image: study/study-springboot-docker:1
     restart_policy: always
-    #端口
+    #（▲）端口
     expose: ""
     ports:
       - "7000:7000"
-    #数据卷
+
+    #（▲）数据卷
     volumes:
       - /xdfapp:/xdfapp
-    #环境变量
+    #（▲）环境变量
     environment:
       - NAME=wangzhj
       - AGE=21
       - SEX=男
-    #日志服务
+    #（▲）日志服务
     logging:
       driver: "json-file"
       options:
         max-size: "100m"
         max-file: "3"
-    #网络
+    #（▲）网络
     network_mode:
     networks:
-      - study_net
-#==========
-#网络
-#==========
+      - overlay_net
+    #（）部署
+    deploy:
+      model: global
+      replicas: 3
+      restart_policy:
+        condition: restart
+        delay:  2
+        max_attemps: 3
+        windows: 3
+#====================
+#（★）网络
+#====================
 networks:
-  study_net:
+  overlay_net:
     external: true
