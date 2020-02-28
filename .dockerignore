@@ -1,0 +1,7 @@
+#comment
+/doc
+/src
+
+#
+/target/classes
+/target/study-springboot-docker-1.0.jar
