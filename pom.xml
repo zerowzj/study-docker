@@ -122,9 +122,9 @@
 <!--                            <dockerConfigFile>src/main/docker</dockerConfigFile>-->
 <!--                            <dockerfile>src/main/docker/Dockerfile</dockerfile>-->
 <!--                            <skipDockerInfo>true</skipDockerInfo>-->
-                            <!--镜像仓库-->
+                            <!--仓库-->
                             <repository>${docker.image.prefix}/${project.artifactId}</repository>
-                            <!--镜像TAG，不指定默认为latest-->
+                            <!--TAG，不指定默认为latest-->
                             <tag>1</tag>
                             <buildArgs>
                                 <TAR_FILE>target/${project.build.finalName}.tar.gz</TAR_FILE>
