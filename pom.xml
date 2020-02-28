@@ -122,6 +122,9 @@
 <!--                            <dockerConfigFile>src/main/docker</dockerConfigFile>-->
 <!--                            <dockerfile>src/main/docker/Dockerfile</dockerfile>-->
 <!--                            <skipDockerInfo>true</skipDockerInfo>-->
+                            <detail>true</detail>
+                            <verbose>true</verbose>
+                            <buildDirectory>target/</buildDirectory>
                             <!--仓库-->
                             <repository>${docker.image.prefix}/${project.artifactId}</repository>
                             <!--TAG，不指定默认为latest-->

@@ -1,7 +1,10 @@
 #
-doc/*
-src/*
+doc
+src
 
 #
-target/classes/*
-target/study-springboot-docker-1.0.jar
+*.iml
+
+#
+target/**
+!target/study-springboot-docker-1.0.tar.gz
