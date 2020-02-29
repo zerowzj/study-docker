@@ -26,6 +26,9 @@ services:
     #network_mode:
     networks:
       - overlay_net
+    #
+    command: tail -f /dev/null
+    working_dir: /
     #（）部署
 #    deploy:
 #      model: global
