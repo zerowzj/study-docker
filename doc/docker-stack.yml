@@ -26,10 +26,11 @@ services:
     #network_mode:
     networks:
       - overlay_net
-    #
+    #（▲）
     command: tail -f /dev/null
+    #（▲）工作目录
     working_dir: /
-    #（）部署
+    #（▲）部署
 #    deploy:
 #      model: global
 #      replicas: 3
@@ -44,5 +45,5 @@ services:
 networks:
   overlay_net:
     external: true
-  bre_net
+  briage_net
     driver: briage
