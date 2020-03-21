@@ -122,8 +122,8 @@
 <!--                            <dockerConfigFile>src/main/docker</dockerConfigFile>-->
 <!--                            <dockerfile>src/main/docker/Dockerfile</dockerfile>-->
 <!--                            <skipDockerInfo>true</skipDockerInfo>-->
-                            <detail>true</detail>
-                            <verbose>true</verbose>
+                            <detail>false</detail>
+                            <verbose>false</verbose>
                             <buildDirectory>target/</buildDirectory>
                             <!--仓库-->
                             <repository>${docker.image.prefix}/${project.artifactId}</repository>

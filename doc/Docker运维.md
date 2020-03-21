@@ -120,50 +120,108 @@ systemctl status docker
    docker swarm leave -f
    ```
 
-## 2.2
-
-## 2.3
-
-
-
 # 3. Portainer
 
 ## 3.1 下载镜像
 
 1. 查询镜像
 
-   ```shell
+   ```
    docker search portainer
    ```
 
 2. 下载镜像
 
-   ```shell
+   ```
    docker pull portainer/portainer
    ```
 
-   ## 3.2 下载镜像
+## 3.2 运行节点
 
-   - 单节点运行
+1. 单节点
 
-     ```shell
-     docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
-     
-     -d 参数以detach方式运行
-     -p 将容器工作端口映射至物理机端口 HOST端口:容器端口
-     -v 将容器目录挂载(映射)到物理机对应位置,这里指定通讯方式为sock
-     portainer/portainer 为镜像名称
-     ```
+   ```shell
+   docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
+   
+   -d 参数以detach方式运行
+   -p 将容器工作端口映射至物理机端口 HOST端口:容器端口
+   -v 将容器目录挂载(映射)到物理机对应位置,这里指定通讯方式为sock
+   portainer/portainer 为镜像名称
+   ```
 
-   - 多节点，portainner 也支持用TCP通讯
+2. 多节点
 
-     ```shell
-     docker run -d -p 9000:9000 portainer/portainer -H tcp://<REMOTE_HOST>:<REMOTE_PORT>
-     其中REMOTE_HOST是slave ip，REMOTE_PORT是slave 端口
-     ```
+   ```shell
+   docker run -d -p 9000:9000 portainer/portainer -H tcp://<REMOTE_HOST>:<REMOTE_PORT>
+   其中REMOTE_HOST是slave ip，REMOTE_PORT是slave 端口
+   ```
 
-     
+3. 独立容器启动
 
-   - 独立容器启动
-   - stack方式启动
-   - swarm service启动
+4. stack方式启动
+
+5. swarm service启动
+
+# 4. 镜像管理
+
+1. 搜索镜像
+
+   ```shell
+   docker search [OPTIONS] KEYWORD
+   ```
+
+2. 获取镜像
+
+   ```
+   docker pull
+   ```
+
+3. 列出本地镜像
+
+   ```
+   docker images [OPTIONS] [REPOSITORY[:TAG]]
+   
+           -a：列出本地所有的镜像（含中间映像层，默认情况下，过滤掉中间映像层）
+    --digests：显示镜像的摘要信息
+           -f：显示满足条件的镜像
+     --format：指定返回值的模板文件
+   --no-trunc：显示完整的镜像信息
+           -q：只显示镜像ID
+   ```
+
+4. 删除本地镜像
+
+   ```
+   docker rmi [OPTIONS] IMAGE [IMAGE...]
+   
+           -f：强制删除
+   --no-prune：不移除该镜像的过程镜像，默认移除
+   ```
+
+5. 使用Dockerfile创建镜像
+
+   ```
+   docker build [OPTIONS] PATH | URL | -
+   
+   OPTIONS：
+   -f：
+   --tag, -t：镜像的名字及标签，通常 name:tag 或者 name 格式；可以在一次构建中为一个镜像设置多个标签
+   ```
+
+6. 标记本地镜像，将其归入某一仓库
+
+   ```
+   docker tag [OPTIONS] IMAGE[:TAG] [REGISTRYHOST/][USERNAME/]NAME[:TAG]
+   ```
+
+7. 本地的镜像上传镜像仓库，要先登陆到镜像仓库push
+
+   ```
+   docker push [OPTIONS] NAME[:TAG]
+   ```
+
+8. 11
+
+   
+
+# 5. 容器管理
