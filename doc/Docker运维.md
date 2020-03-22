@@ -124,25 +124,29 @@ systemctl status docker
 
 ## 3.1 安装
 
-### 3.1.1 独立安装
+### 3.1.1 容器安装
 
-1. 搜索镜像：docker search registry
+1. 独立安装
 
-2. 下载镜像：docker pull registry
+   - 搜索镜像：docker search registry
+
+   - 载镜像：docker pull registry
+
+   - 运行容器
+
+     ```
+     docker run -d -v /var/lib/registry:/var/lib/registry -p 5000:5000 --restart=always --name registry registry:2.1.1
+     ```
+
+2. compose安装
 
 3. 运行容器
 
-   ```shell
-   docker run -d -v /var/lib/registry:/var/lib/registry -p 5000:5000 --restart=always --name registry registry:2.1.1
-   ```
 
-### 3.1.2 docker-compose安装
+### 3.1.2 本地安装
 
 1. 安装
 2. 2
-3. 3
-4. 3
-5. 3
 
 ### 3.1.3 验证
 

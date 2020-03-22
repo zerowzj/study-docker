@@ -128,6 +128,7 @@
                             <!-- linux用户名和密码 -->
                             <username>root</username>
                             <password>wzj@1357</password>
+<!--                            <useMavenSettingsForAuth></useMavenSettingsForAuth>-->
                             <!--仓库：registry_ip/image_prefix/image_name-->
                             <repository>${docker.registry}/${docker.image.prefix}/${project.artifactId}</repository>
                             <!--tag，不指定默认为latest-->
