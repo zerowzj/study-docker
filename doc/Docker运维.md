@@ -197,19 +197,11 @@ systemctl status docker
 
 7. 123
 
-8. 123
-
-   ```json
-   
-   ```
-
-   
-
 
 
 ## 3.3 部署Web UI
 
-# 3. Portainer
+# 3. Portainer安装
 
 ## 3.1 下载镜像
 
