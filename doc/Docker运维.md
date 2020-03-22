@@ -58,34 +58,75 @@ systemctl enable docker
 systemctl status docker
 ```
 
+## 1.4 远程监听
 
+1. 默认情况下Docker守护进程unix socket（/var/run/docker.sock）来进行本地进程通信，而不会监听任何端口， 只能在本地使用docker客户端或者使用Docker API进行操作。
 
-## 1.4 开启远程监听
+2. 如果想在其他主机上操作Docker主机，就需要让Docker守护进程打开一个HTTP Socket，这样才能实现远程通信。配置方法如下
 
-1. 默认情况下Docker守护进程unix socket（/var/run/docker.sock）来进行本地进程通信，而不会监听任何端口， 只能在本地使用docker客户端或者使用DockerAPI进行操作。
+   - 修改/etc/default/docker，加入下面一行，重启docker即可。
 
-2. 如果想在其他主机上操作Docker主机，就需要让Docker守护进程打开一个HTTP Socket，这样才能实现远程通信。
+     ```
+     DOCKER_OPTS="-H tcp://0.0.0.0:2375"
+     ```
 
-   - vi /usr/lib/systemd/system/docker.service
+     这是网上给的配置方法，也是这种简单配置让Docker Daemon把服务暴露在tcp的2375端口上，这样就可以在网络上操作Docker了。Docker本身没有身份认证的功能，只要网络上能访问到服务端口，就可以操作Docker。
 
-   - 在[Service]部分的最下面添加下面两行
+   - 修改/usr/lib/systemd/system/docker.service，在[Service]部分的最下面添加下面两行
 
      ```shell
+     ExecStart=
      ExecStart=/usr/bin/dockerd -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock
      ```
 
-   - 让docker重新读取配置文件，并重启docker服务
+   - 修改/etc/docker/daemon.json
 
-     ```shell
-     systemctl daemon-reload
-     systemctl restart docker
+     ```json
+     {
+       "hosts": ["tcp://0.0.0.0:2375", "unix:///var/run/docker.sock"]
+     }
+     
      ```
 
-   - 查看docker守护进程是否已经监听2375的tcp端口
+     - "unix:///var/run/docker.sock"：unix socket，本地客户端将通过这个来连接 Docker Daemon。
+     - "tcp://0.0.0.0:2375"：tcp socket，表示允许任何远程客户端通过 2375 端口连接 Docker Daemon。
 
-     ```shell
-     ps -ef|grep docker
-     ```
+3. 让docker重新读取配置文件，并重启docker服务
+
+   ```shell
+   systemctl daemon-reload
+   systemctl restart docker
+   ```
+
+4. 查看docker守护进程是否已经监听2375的tcp端口
+
+   ```shell
+   #
+   ps -ef|grep docker
+   #
+   netstat -tlunp
+   ```
+
+5. 简单使用
+
+   -H为连接目标主机docker服务
+
+   ```shell
+   #查看docker版本
+   docker -H tcp://<DOCKER_HOST>:2375 version
+   #查看镜像包
+   docker -H tcp://<DOCKER_HOST>:2375 images
+   ```
+
+   
+
+## 1.5 常见端口
+
+- 2375：未加密的docker socket,远程root无密码访问主机
+- 2376：tls加密套接字,很可能这是您的CI服务器4243端口作为https 443端口的修改
+- 2377：群集模式套接字,适用于群集管理器,不适用于docker客户端
+- 5000：docker注册服务
+- 4789和7946：覆盖网络
 
 # 2. Swarm搭建
 
