@@ -15,8 +15,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <docker.image.prefix>study</docker.image.prefix>
-        <docker.registry></docker.registry>
+        <image.prefix>study</image.prefix>
+        <docker.registry>150.158.110.15:5000</docker.registry>
     </properties>
 
     <dependencies>
@@ -97,9 +97,9 @@
             </properties>
             <build>
                 <plugins>
-                    <!-- ==================== -->
-                    <!-- （★）生成Docker镜像  -->
-                    <!-- ==================== -->
+                    <!-- ============================== -->
+                    <!-- （★）生成Docker镜像            -->
+                    <!-- ============================== -->
                     <plugin>
                         <groupId>com.spotify</groupId>
                         <artifactId>dockerfile-maven-plugin</artifactId>
@@ -118,15 +118,15 @@
                             <!-- 上下文目录-->
                             <contextDirectory>${project.basedir}</contextDirectory>
                             <!-- 生成镜像时相关信息存储位置 -->
-<!--                            <dockerInfoDirectory>src/main/docker</dockerInfoDirectory>-->
-<!--                            <dockerConfigFile>src/main/docker</dockerConfigFile>-->
-<!--                            <dockerfile>src/main/docker/Dockerfile</dockerfile>-->
-<!--                            <skipDockerInfo>true</skipDockerInfo>-->
+                            <!--                            <dockerInfoDirectory>src/main/docker</dockerInfoDirectory>-->
+                            <!--                            <dockerConfigFile>src/main/docker</dockerConfigFile>-->
+                            <!--                            <dockerfile>src/main/docker/Dockerfile</dockerfile>-->
+                            <!--                            <skipDockerInfo>true</skipDockerInfo>-->
                             <detail>false</detail>
                             <verbose>false</verbose>
                             <buildDirectory>target/</buildDirectory>
-                            <!--仓库-->
-                            <repository>${docker.image.prefix}/${project.artifactId}</repository>
+                            <!--仓库：push镜像的ip地址/image_prefix/image_name-->
+                            <repository>${docker.registry}/${image.prefix}/${project.artifactId}</repository>
                             <!--TAG，不指定默认为latest-->
                             <tag>1</tag>
                             <buildArgs>

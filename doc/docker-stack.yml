@@ -4,6 +4,7 @@ version: '3.6'
 #====================
 services:
   study-springcloud-docker:
+    #（▲）镜像
     image: study/study-springboot-docker:1
     #（▲）端口
     #expose: ""

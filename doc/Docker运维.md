@@ -120,6 +120,95 @@ systemctl status docker
    docker swarm leave -f
    ```
 
+# 3. Registry安装
+
+## 3.1 安装
+
+### 3.1.1 独立安装
+
+1. 搜索镜像：docker search registry
+
+2. 下载镜像：docker pull registry
+
+3. 运行容器
+
+   ```shell
+   docker run -d -v /var/lib/registry:/var/lib/registry -p 5000:5000 --restart=always --name registry registry:2.1.1
+   ```
+
+### 3.1.2 docker-compose安装
+
+1. 安装
+2. 2
+3. 3
+4. 3
+5. 3
+
+### 3.1.3 验证
+
+1. 访问 http://150.158.110.15:5000/v2/
+
+2. 查看仓库
+
+   ```
+   #查看全部镜像
+   http://150.158.110.15:5000/v2/_catalog
+   #
+   http://192.168.75.133:5000/v2/XXX/tags/list
+   ```
+
+   
+
+## 3.2 配置客户端
+
+1. 编辑/etc/docker/daemon.json（如无新建），添加以下内容
+
+   ```json
+   {
+     "registry-mirrors":[
+       "https://registry.docker-cn.com"
+     ],
+     "insecure-registries":[
+       "http://150.158.110.15:5000"
+     ]
+   }
+   ```
+
+2. 重新启动服务
+
+   ```shell
+   systemctl daemon-reload
+   systemctl restart docker
+   ```
+
+3. 检查是否生效：docker info
+
+   ```
+   Insecure Registries:
+    150.158.110.15:5000
+    127.0.0.0/8
+   ```
+
+4. 123
+
+5. 123
+
+6. 123
+
+7. 123
+
+8. 123
+
+   ```json
+   
+   ```
+
+   
+
+
+
+## 3.3 部署Web UI
+
 # 3. Portainer
 
 ## 3.1 下载镜像
