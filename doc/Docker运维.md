@@ -205,9 +205,9 @@ systemctl status docker
 
 ## 3.3 部署Web UI
 
-# 3. Portainer安装
+# 4. Portainer安装
 
-## 3.1 下载镜像
+## 4.1 下载镜像
 
 1. 查询镜像
 
@@ -221,7 +221,7 @@ systemctl status docker
    docker pull portainer/portainer
    ```
 
-## 3.2 运行节点
+## 4.2 运行节点
 
 1. 单节点
 
@@ -247,7 +247,7 @@ systemctl status docker
 
 5. swarm service启动
 
-# 4. 镜像管理
+# 5. 镜像管理
 
 1. 搜索镜像
 
@@ -309,7 +309,7 @@ systemctl status docker
 
    
 
-# 5. 容器管理
+# 6. 容器管理
 
 1. 列出容器
 
@@ -378,4 +378,10 @@ systemctl status docker
 
 16. 123
 
-17. 
+
+# 7. 节点管理
+
+# 8. 服务管理
+
+# 9. 服务栈管理
+
