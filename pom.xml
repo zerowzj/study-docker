@@ -15,7 +15,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <image.prefix>study</image.prefix>
+        <docker.image.prefix>study</docker.image.prefix>
         <docker.registry>114.67.102.8:5000</docker.registry>
     </properties>
 
@@ -123,13 +123,17 @@
                             <!-- <dockerfile>src/main/docker/Dockerfile</dockerfile>-->
                             <!-- <skipDockerInfo>true</skipDockerInfo>-->
                             <detail>false</detail>
+                            <!-- 冗长 -->
                             <verbose>false</verbose>
-                            <!--  -->
-                            <buildDirectory>target/</buildDirectory>
-                            <!--仓库：push镜像的ip地址/image_prefix/image_name-->
-                            <repository>${docker.registry}/${image.prefix}/${project.artifactId}</repository>
-                            <!--TAG，不指定默认为latest-->
+                            <!-- linux用户名和密码 -->
+                            <username>root</username>
+                            <password>wzj@1357</password>
+                            <!--仓库：registry_ip/image_prefix/image_name-->
+                            <repository>${docker.registry}/${docker.image.prefix}/${project.artifactId}</repository>
+                            <!--tag，不指定默认为latest-->
                             <tag>1</tag>
+                            <!-- 构建目录 -->
+                            <buildDirectory>target/</buildDirectory>
                             <!-- 构建参数 -->
                             <buildArgs>
                                 <TAR_FILE>target/${project.build.finalName}.tar.gz</TAR_FILE>
