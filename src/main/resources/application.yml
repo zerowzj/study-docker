@@ -1,6 +1,5 @@
 #
 server:
-  #address: 127.0.0.1
   port: 7000
 #
 logging:
@@ -8,10 +7,10 @@ logging:
 #
 spring:
   application:
-    name: study-docker
+    name: study-springboot-docker
   main:
     web-application-type: servlet
-    banner-mode: "console"
+    banner-mode: console
 #====================
 #（★）
 #====================

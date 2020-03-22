@@ -191,7 +191,11 @@ systemctl status docker
 
 ### 3.1.3 验证
 
-1. 访问 http://150.158.110.15:5000/v2/
+1. 访问
+
+   ```
+    http://150.158.110.15:5000/v2/
+   ```
 
 2. 查看仓库
 
@@ -202,7 +206,6 @@ systemctl status docker
    http://192.168.75.133:5000/v2/XXX/tags/list
    ```
 
-   
 
 ## 3.2 配置客户端
 
@@ -214,7 +217,7 @@ systemctl status docker
        "https://registry.docker-cn.com"
      ],
      "insecure-registries":[
-       "http://150.158.110.15:5000"
+       "http://<HOST_NAME>:5000"
      ]
    }
    ```

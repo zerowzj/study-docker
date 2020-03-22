@@ -122,7 +122,7 @@
                             <!-- <dockerConfigFile>src/main/docker</dockerConfigFile>-->
                             <!-- <dockerfile>src/main/docker/Dockerfile</dockerfile>-->
                             <!-- <skipDockerInfo>true</skipDockerInfo>-->
-                            <detail>false</detail>
+                            <detail>true</detail>
                             <!-- 冗长 -->
                             <verbose>false</verbose>
                             <!-- linux用户名和密码 -->
