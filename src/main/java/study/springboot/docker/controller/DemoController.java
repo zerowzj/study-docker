@@ -10,7 +10,7 @@ public class DemoController {
 
     @GetMapping("/sayHi")
     public String sayHi(String name) {
-        log.info("sayHi...");
+        log.info("hello, {}", name);
         return String.format("hi, %s", name);
     }
 }
