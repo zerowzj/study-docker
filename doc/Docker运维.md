@@ -100,23 +100,15 @@ find / -name docker
    }
    ```
 
-2. 文件 /usr/lib/systemd/system/docker.service，
-
-   ```json
-   {
-     "registry-mirrors": ["https://uwxsp1y1.mirror.aliyuncs.com"];
-     "debug":true
-   }
-   ```
-
    - 使用journalctl统一查看service所有的日志
 
-     ```shell
+     ```
      journalctl -u docker.service -f
      ```
 
      
 
+2. 文件 /usr/lib/systemd/system/docker.service，开放端口
 
 ## 1.4 端口
 
