@@ -94,9 +94,14 @@ find / -name docker
 
    ```json
    {
-    "data-root": "/data/docker";
-    "registry-mirrors": ["https://uwxsp1y1.mirror.aliyuncs.com"];
-    "debug":true
+    "data-root": "/data/docker",
+    "registry-mirrors": [
+        "https://uwxsp1y1.mirror.aliyuncs.com"
+    ],
+    "debug":true,
+     "insecure-registries":[
+       "114.67.102.8:5000"
+     ]
    }
    ```
 
@@ -178,6 +183,12 @@ find / -name docker
 
 # 2. Swarm
 
+## 2.1 介绍
+
+​		Swarm 在 Docker 1.12 版本之前属于一个独立的项目，在 Docker 1.12 版本发布之后，该项目合并到了 Docker 中，成为 Docker 的一个子命令。
+
+​		目前，Swarm 是 Docker 社区提供的唯一一个原生支持 Docker 集群管理的工具。它可以把多个 Docker 主机组成的系统转换为单一的虚拟 Docker 主机，使得容器可以组成跨主机的子网网络
+
 ## 2.1 集群管理
 
 ​		docker swarm [COMMOND]，用于配置机器集群，包括管理manager和worker两类机器节点的增删。
@@ -223,8 +234,12 @@ find / -name docker
 
    - 运行容器
 
-     ```
-     docker run -d -v /var/lib/registry:/var/lib/registry -p 5000:5000 --restart=always --name registry registry:2.1.1
+     ```shell
+     docker run -d -p 5000:5000 \
+         --restart=always \
+         --name registry \
+         -v /var/lib/registry:/var/lib/registry \
+         registry:2.1.1
      ```
 
 2. compose安装
@@ -285,13 +300,6 @@ find / -name docker
     127.0.0.0/8
    ```
 
-4. 123
-
-5. 123
-
-6. 123
-
-7. 123
 
 
 
@@ -332,11 +340,11 @@ find / -name docker
 1. 运行
 
    ```shell
-       docker run -d -p 9000:9000 \
-           --name prtainer \
-           --restart=always \
-           -v /var/run/docker.sock:/var/run/docker.sock \
-           portainer/portainer
+   docker run -d -p 9000:9000 \
+       --name prtainer \
+       --restart=always \
+       -v /var/run/docker.sock:/var/run/docker.sock \
+       portainer/portainer
    ```
 
    - -d 参数以detach方式运行
