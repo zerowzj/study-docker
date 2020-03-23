@@ -1,12 +1,15 @@
-# ==【介绍】==
+# 1.介绍
+
 1. Dockerfile 是一个文本格式的配置文件，用户可以使用 Dockerfile 快速创建自定义的镜像
 2. 基本结构
-- Dockerfile 由一行行命令语句组成，并且支持已 # 开头的注释行
-- 一般而言，Dockerfile 的内容分为四个部分：基础镜像信息、维护者信息、镜像操作指令和容器启动时执行指令
+   - Dockerfile 由一行行命令语句组成，并且支持已 # 开头的注释行
+   - 一般而言，Dockerfile 的内容分为四个部分：基础镜像信息、维护者信息、镜像操作指令和容器启动时执行指令
+# 2.指令
 
-# ==【指令】==
-### （1）配置指令
-**1. ARG**
+## 2.1 配置指令
+
+### 1. ARG
+
 - 功能
   - 用于指定构建参数
   - 与ENV不同的是，容器运行时不会存在这些环境变量
@@ -15,7 +18,8 @@
 ```
 ARG <name>[=<default value>]
 ```
-**2. FROM**
+### 2. FROM
+
 - 功能
   - 指定基础镜像
   - Dockerfile的第一条指令必须为 FROM 指令
@@ -28,14 +32,16 @@ ARG <name>[=<default value>]
 
 <tag>和<digest> 是可选项，如果没有，默认值为latest
 ```
-**3. LABEL**
+### 3. LABEL
+
 - 功能
   - 用于为镜像添加元数据
 - 格式
 ```
 
 ```
-**4. EXPOSE**
+### 4. EXPOSE
+
 - 功能
   - 容器需要暴露的端口号，供互联系统使用
   - 仅仅是声明容器打算使用什么端口而已，并不会自动在宿主进行端口映射
@@ -43,7 +49,8 @@ ARG <name>[=<default value>]
 ```
 EXPOSE <port> [<port>…]
 ```
-**5. ENV**
+### 5. ENV
+
 - 功能
   - 设置环境变量
   - 其他指令中可以直接引用ENV设置的环境变量
@@ -52,13 +59,15 @@ EXPOSE <port> [<port>…]
 ENV <key> <value>
 ENV <key1>=<value1> <key2>=<value2>...
 ```
-**6. ENTRYPOINT**
+### 6. ENTRYPOINT
+
 - 功能
 - 格式
 ```
 
 ```
-**7. VOLUME**
+### VOLUME
+
 - 功能
   - 用于指定持久化目录
   - 
@@ -72,13 +81,15 @@ ENV <key1>=<value1> <key2>=<value2>...
 ```
 
 ```
-**9. WORKDIR**
+### WORKDIR
+
 - 功能
 - 格式
 ```
 
 ```
 **10. ONBUILD**
+
 ```
 
 ```
@@ -95,22 +106,25 @@ ENV <key1>=<value1> <key2>=<value2>...
 
 ```
 
-### （2）操作指令
-**1. RUN**
+## 2.2 操作指令
+### 1. RUN
+
 - 功能
 - 格式
 ```
 （1）RUN <command>
 （2）RUN ["executable", "param1", "param2"]
 ```
-**2. CMD**
+### 2. CMD
+
 - 功能
 - 格式
 ```
 （1）RUN <command>
 （2）RUN ["executable", "param1", "param2"]
 ```
-**3. ADD**
+### 3. ADD
+
 - 功能
 - 格式
 ```
