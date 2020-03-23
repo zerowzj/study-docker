@@ -5,7 +5,7 @@ version: '3.6'
 services:
   study-springcloud-docker:
     #（▲）镜像
-    image: study/study-springboot-docker:1
+    image: 114.67.102.8:5000/study/study-springboot-docker:1
     #（▲）端口
     #expose: ""
     ports:
@@ -18,17 +18,17 @@ services:
       - NAME=wangzhj
       - AGE=21
     #（▲）日志服务
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "100m"
-        max-file: "3"
+    #    logging:
+    #      driver: "json-file"
+    #      options:
+    #        max-size: "100m"
+    #        max-file: "3"
     #（▲）网络
     #network_mode:
     networks:
       - overlay_net
     #（▲）
-    command: tail -f /dev/null
+    #command: tail -f /dev/null
     #（▲）工作目录
     working_dir: /
     #（▲）部署
@@ -46,5 +46,5 @@ services:
 networks:
   overlay_net:
     external: true
-  briage_net
+  briage_net:
     driver: briage

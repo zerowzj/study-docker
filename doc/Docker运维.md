@@ -1,6 +1,6 @@
 # 1. Docker安装
 
-## 1.1 卸载
+## 1.1 安装
 
 ### 1.1.1 卸载
 
@@ -27,9 +27,9 @@ yum remove docker \
            docker-engine 
 ```
 
-## 1.2 安装
+### 1.1.2 安装
 
-```shell
+```
 #安装所需系统工具，yum-util 提供yum-config-manager功能， 另外两个是devicemapper驱动依赖
 yum install -y yum-utils \
                device-mapper-persistent-data \
@@ -49,7 +49,7 @@ yum -y install docker-ce-18.03.1
 docker version
 ```
 
-## 1.3 启停
+### 1.2.3 启停
 
 ```shell
 #启停
@@ -60,7 +60,9 @@ systemctl enable docker
 systemctl status docker
 ```
 
-## 1.4 远程监听
+## 1.2 目录
+
+## 1.3 远程监听
 
 1. 默认情况下Docker守护进程unix socket（/var/run/docker.sock）来进行本地进程通信，而不会监听任何端口， 只能在本地使用docker客户端或者使用Docker API进行操作。
 
@@ -120,7 +122,11 @@ systemctl status docker
    docker -H tcp://<DOCKER_HOST>:2375 images
    ```
 
-   
+
+## 1.4 常见配置
+
+1. /ect/docker/daemon-json
+2. 
 
 ## 1.5 常见端口
 
@@ -196,16 +202,16 @@ systemctl status docker
 1. 访问
 
    ```
-    http://150.158.110.15:5000/v2/
+    http://<IP>:5000/v2/
    ```
 
 2. 查看仓库
 
    ```
    #查看全部镜像
-   http://150.158.110.15:5000/v2/_catalog
+   http://<IP>:5000/v2/_catalog
    #
-   http://192.168.75.133:5000/v2/XXX/tags/list
+   http://<IP>:5000/v2/XXX/tags/list
    ```
 
 
@@ -272,7 +278,7 @@ systemctl status docker
 1. 单节点
 
    ```shell
-   docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
+   docker run -d -p 9000:9000 --restart:always -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
    
    -d 参数以detach方式运行
    -p 将容器工作端口映射至物理机端口 HOST端口:容器端口
@@ -430,4 +436,6 @@ systemctl status docker
 # 8. 服务管理
 
 # 9. 服务栈管理
+
+# 10. 网络管理
 
