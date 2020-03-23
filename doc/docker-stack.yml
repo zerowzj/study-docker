@@ -30,7 +30,7 @@ services:
     #（▲）
     #command: tail -f /dev/null
     #（▲）工作目录
-    working_dir: /
+    #working_dir: /
     #（▲）部署
 #    deploy:
 #      model: global
