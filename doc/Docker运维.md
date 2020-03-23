@@ -2,6 +2,8 @@
 
 ## 1.1 卸载
 
+### 1.1.1 卸载
+
 ```shell
 #查看Docker版本
 yum list installed | grep docker
