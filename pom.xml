@@ -44,7 +44,6 @@
         <version>2.1.2.RELEASE</version>
     </parent>
 
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -62,7 +61,6 @@
             <artifactId>guava</artifactId>
             <version>20.0</version>
         </dependency>
-
     </dependencies>
 
     <build>
